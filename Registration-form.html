@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="shortcut icon" href="Images/logo.png" type="image/png">
+  
+  <style>
+  *{
+    margin:0;
+	padding:0;
+	box-sizing:border-box;
+  }
+    @font-face{
+	  font-family:font;
+	  src:url(fonts/BRUSHSCI.TTF);
+	}
+    #display{
+	  font-family:font;
+	}
+	@font-face{
+	  font-family:myfont4;
+	  src:url(fonts/COOPBL.TTF);
+	}
+	@font-face{
+	  font-family:myfont3;
+	  src:url(fonts/ITCEDSCR.TTF);
+	}
+	.list{
+	  list-style:none;
+	}
+	.nav-item > .nav-link:hover, .nav-link:active{
+	  color:white !important;
+	}
+	.form-ele{
+	  display:flex;
+	  text-align:center;
+	}
+	.p,label{
+	  color:#566573 ;
+	}
+  </style>
+  
+  <script>
+   $(document).ready(function(){
+	   $("input").keyup(function(){
+	    let name=$("#Name").val();
+		let email=$("#inputEmail4").val();
+		let password=$("#Password1").val();
+		let address=$("#inputAddress").val();
+		let no=$("#Number").val();
+		let check=$("#gridCheck").val();
+		
+		if(name!="" && email!="" && password!="" && address!="" && no!="" && check!=""){
+		   $("#submit1").attr("disabled",false);
+		}
+		else{
+		   $("#submit1").attr("disabled",true);
+		}
+	   });
+	});
+  </script>
+  
+  <script>
+	$("document").ready(function(){
+	   $("#namecheckbox").hide();
+	   $("#emailcheckbox").hide();
+	   $("#passcheckbox").hide();
+	   $(".mobilecheckbox").hide();
+	   
+	   let uname_err = true;
+	   let pass_err = true;
+	   let mail_err = true;
+	   let tel_err = true;
+	   
+	   $("#Name").keyup(function(){
+	     name_check();
+	   });
+	    function name_check(){
+		  let uname =$("#Name").val();
+		  if((uname.length<=3) || (uname.length>=25)){
+		     $("#namecheckbox").show().html("**username length must be between 3 and 25").css("color","red").focus();
+			 uname_err=false;
+			 return false;			 
+		  }
+		  else{$("#namecheckbox").hide();}
+		}
+		
+	   $('#inputEmail4').keyup(function(){
+	      email_check();
+	   });
+	   function email_check(){
+	     let emailid = $('#inputEmail4').val();
+		  if(emailid.charAt(emailid.length-3)!='.' && emailid.charAt(emailid.length-4)!='.'){
+		     $('#emailcheckbox').show().html('**Please enter valid email "abc@gmail.com" or "abc@gmail.in"').css('color','red').focus();
+			     mail_err=false;
+				 return false;
+		  }
+		  else{$('#emailcheckbox').hide();}
+		  }		 
+		  
+		  $('#Password1').keyup(function(){
+		      pass2_check();
+		  });
+		  function pass2_check(){
+		     let passvalue = $('#Password1').val();
+			  if(passvalue.length!=8){
+			    $('#passcheckbox').show().html('**Password must be atleast 8 characters 1 special character and 1 upper case').css('color','red');
+				$('#passcheckbox').focus();
+				  pass_err=false;
+				  return false;
+			  }
+			 else{$('#passcheckbox').hide();}
+			 
+			 let passcheck=0;
+			 for(let a1=0;a1<=passvalue.length;a1++){
+			   if(passvalue.charCodeAt(a1)>=65 && passvalue.charCodeAt(a1)<=90){
+			      passcheck=1;
+			   }
+			 }
+			 if(passcheck==0){
+			    $("#passcheckbox").show().html("**You must contain atleast one Upper character in password").css('color','red').focus();
+			    pass_err=false;
+				return false;
+			 }
+			 else{$("#passcheckbox").hide();}
+			 
+			 let pass_check=0;
+			 for(let a1=0;a1<=passvalue.length;a1++){
+			   if(passvalue.charCodeAt(a1)>=33 && passvalue.charCodeAt(a1)<=42 || passvalue.charCodeAt(a1)==64){
+			      pass_check=1;
+			   }
+			 }
+			 if(pass_check==0){
+			    $("#passcheckbox").show().html("**You must contain atleast one special character in password").css('color','red').focus();
+			    pass_err=false;
+				return false;
+			 }
+			 else{$("#passcheckbox").hide();}
+			}
+		  
+		   $("#Number").keyup(function(){
+		      mob_check();
+		  });
+		    function mob_check(){
+		    let mobvalue=$("#Number").val();
+		    if(mobvalue.length!=12){
+			  $('.mobilecheckbox').show().html('please enter 10 digit number').focus().css('color','red');
+			  tel_err=false;
+			  return false;
+			}
+			else{$(".mobilecheckbox").hide();}
+			
+		}	
+		  
+		  $("#submit1").click(function(){
+		       uname_err = true;
+               pass_err = true;
+	           mail_err = true;
+	           tel_err = true;
+		      
+		       name_check();
+			   email_check();
+			   pass2_check();
+			   mob_check();
+			   
+			   if((uname_err==true) && (pass_err==true) && (mail_err==true) && (tel_err==true)){
+			      return true;
+			   }
+			   else{return false;}
+		  });
+	});
+</script>
+  
+</head>
+<body style="background:url(Images/bckground.jpg)no-repeat;background-size:100% 100%;background-attachment:fixed;opacity:1;color:white;">
+<nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top " >
+  <img class="rounded-circle" src="Images/logo.png" width="70" height="70" >
+  <a class="navbar-brand" href="index.html" style="margin-left:12px;"><span style="color:lightgrey;font-size:25px;"><b>RIYANSHI</b></span>
+     <small>PIE SHOP</small>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div id="nav" class="collapse navbar-collapse justify-content-center clearfix">
+    <ul class="navbar-nav">
+	   <li class="nav-item">
+	      <a class="nav-link active" href="index.html">HOME</a>
+	   </li>
+	   <li class="nav-item">
+		  <a class="nav-link" href="about.html">ABOUT US</a>
+	   </li>
+	   <li class="nav-item">
+		  <a class="nav-link" href="shop.html">SHOP</a>
+	   </li>
+	   <li class="nav-item dropdown">
+		  <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">INFO</a>
+		  <div class="dropdown-menu">
+		      <a class="dropdown-item" href="Return-&-refunds.html">Returns & Refunds</a>
+			  <a class="dropdown-item" href="shop.html">Stock our pies</a>
+		  </div>
+	   </li>
+	   <li class="nav-item">
+	      <a class="nav-link" href="Contact-us.html">CONTACT US</a>
+	   </li>
+	</ul>
+  </div>
+  <form class="form-ele justify-content-end" action="/action_page.php" >
+    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+    <button class="btn btn-danger" type="submit">Search</button>
+  </form>
+</nav>
+
+<div style=";width:100%;height:80px;color:white;" class="clearfix link">
+  <div class="container-fluid">
+     <h1 style="font-family:myfont4;color:white;text-align:center;padding:0;">Registration Form</h1>
+     <p style="text-align:center;padding:0;line-height:0"><i class="fa fa-home link"></i>
+     <a href="index.html" style="text-decoration:none;color:white">Home</a>/Registration Form</p>
+  </div>
+</div>
+
+<div style="background:white;color:black;">
+<div class="container" style="width:80%;border:1px solid #566573;padding:50px;box-sizing:border-box;background:white;">
+<div>
+ <h1>Register</h1>
+ <p class="p">Registering for this site allows you to access your order status and history. Just fill inthe fields below, and we will get 
+    a new account set up for you in no time. 
+    We will only ask you for information necessary to make the purchase process faster and easier.</p>
+</div>
+
+<div >
+<form action="Riyanshi-pie-shop.html" method="post" autocomplete="off" onsubmit="return validation()">
+  <div class="form-row">
+    <div class="form-group col-md-6 col-lg-6 col-xl-6">
+      <label for="Name">Username</label>
+      <input type="text" class="form-control" id="Name">
+	  <span id="namecheckbox" style="font-size:14px"></span>
+    </div>
+  
+    <div class="form-group col-md-6 col-lg-6 col-xl-6">
+      <label for="inputEmail4">Email</label>
+      <input type="email" class="form-control" id="inputEmail4" placeholder="abc@gmail.com">
+	  <span id="emailcheckbox" style="font-size:14px"></span>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="Password1">Password</label>
+      <input type="password" class="form-control" id="Password1">
+	  <span id="passcheckbox" style="font-size:14px"></span>
+    </div>
+	<div class="form-group col-md-6">
+      <label for="Number">Mobile no</label>
+      <input type="tel" class="form-control" size="60px;" id="Number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="999-999-9999">
+	  <span class="mobilecheckbox" style="font-size:14px"></span>
+    </div>
+  </div>
+  <div class="form-row">
+   <div class="form-group">
+     <label for="inputAddress">Address</label>
+     <input type="text" size="120%" class="form-control" id="inputAddress" minlength="20" maxlength="150">
+   </div>
+  </div>
+  
+  <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        <span class="p">Your personal data will be used to support your experience throughout this website, to manage access to your account,
+		and for other purposes described in our privacy policy.</span>
+      </label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" id="submit1" disabled>REGISTER</button>
+</form>
+</div>
+</div>
+</div>
+
+<div>
+  <marquee width="100%" height="50%" direction="right" scrollamount="10" style="padding:5px">Award winning handmade pies with nationwide
+  delivery</marquee>
+</div>
+
+<div style="background:black;opacity:0.6;">
+  <div class="container-fluid nav-tab" style="text-align:center;">
+	 <img src="Images/award1.png" alt="award winning in 2017">
+	 <img src="Images/award2.png" alt="award winning in 2017">
+	 <img src="Images/award3.png" alt="award winning in 2017">
+  </div>
+  <hr style="color:white;">
+  
+  <div class="container">
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <p style="margin-left:10%;"><b>Contact Us</b></p>
+        <ul >
+         <li class="list">Toll free-0234794612</li>
+         <li class="list">Mobile-6743245985</li>
+         <li class="list">Email-<a href="mailto:drf@gmail.com" style="color:white;">drf@gmail.com</a></li>
+	    </u>
+		 <p style="margin-top:8%;font-family:font;font-size:20px;"><b>Mon-Fri 9am-10pm</b></p>
+	</div>
+	<div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+	    <nav class="navbar navbar-expand-sm navbar-dark">
+	    <ul class="navbar-nav flex-column" style="color:white;">
+	      <li class="nav-item">
+		     <a class="nav-link" href="#">FAQ's</a>
+		  </li>
+		  <li class="nav-item"><a class="nav-link"  href="#">My Account</a></li>
+		  <li class=" nav-item"><a class="nav-link" href="#">Returns and Refunds</a></li>
+		  <li class="nav-item"><a class="nav-link" href="#">Stock our Pie</a></li>
+		  <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+		  <li class="nav-item"><a class="nav-link" href="#">Privacy Policy</a></li>
+		  <li class="nav-item"><a class="nav-link" href="#">Terms & Condition</a></li>
+	   </ul>
+	   </nav>
+	</div>
+	<div  class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+	    <p>Sign up to our newsletter for news, offers and exclusive perks</p>
+		<input type="email" placeholder="enter your email"><input style="background:red;color:white;" type="submit" value="Send">
+		<address  style="margin-top:10%;">
+		  <strong>Riyanshi Pie Shop</strong><br>
+		  <small><i>Dankeenganj, Mirzapur<br>
+		  Uttar Pradesh<br>
+		  231001</i></small>
+		</address>
+	</div>
+  </div>
+  </div>
+</div>
+
+ <div style="background:green;font-size:15px;padding:10px 20px;" class="clearfix">
+  <div style="margin-left:90px;margin-right:90px;">
+    <span class="float:left"><span style="margin-right:10px;">&copy;</span> Copyright 2021 Riyanshi Pie Shop All Rights Reserved</span>
+	<span class="float-right" ><a href="#"><i class="fa fa-facebook-square" style="font-size:24px;color:white;"></i></a>
+	<a href="#"><i class="fa fa-google-plus-square" style="font-size:24px;color:white;"></i></a>
+	<a href="#"><i class="fa fa-twitter-square" style="font-size:24px;color:white;"></i></a>
+    </span>
+ </div>
+ </div>
+ 
+</body>
+</html>

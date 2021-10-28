@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)file:///D:/html.-learning/Pie%20shop/Riyanshi-pie-shop.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="shortcut icon" href="Images/logo.png" type="image/png">
+  
+  <style>
+    @font-face{
+	  font-family:font;
+	  src:url(fonts/BRUSHSCI.TTF);
+	}
+    #display{
+	  font-family:font;
+	  color:;
+	}
+	@font-face{
+	  font-family:myfont3;
+	  src:url(fonts/ITCEDSCR.TTF);
+	}
+	.img1:hover{
+	  -webkit-transform:scale(1.2,1.2);
+	  -moz-transform:scale(1.2,1.2);
+	  -o-transform:scale(1.2,1.2);
+	  -ms-transform:scale(1.2,1.2);
+	}
+	@font-face{
+	  font-family:myfont;
+	  src:url(fonts/IMPRISHA.TTF);
+	}
+	.list{
+	  list-style:none;
+	}
+	#uname:focus,#password:focus{
+	  background:#D4E7F9 ;
+	}
+    .form-ele{
+	  display:flex;
+	  text-align:center;
+	}
+	.nav-item > .nav-link:hover, .active{
+	  color:white !important;
+	}
+	@media only screen and (max-width:600px){
+	  .details{
+	    padding:25px;
+		font-size:30px;
+        text-align:center;
+		color:grey !important;
+	  }
+	  .img-details{
+	   height:92%;
+	  }
+	}
+	.img2{
+	  border-radius:8%;
+	}
+	.images1:hover .imag-box .img2{
+	   transform:scale(1.2);
+	}
+	.images1:hover .img-details{
+	   transform:scaleX(1) !important;
+	}
+	.image-name{
+	   text-decoration:underline;
+	   color:black;
+	}
+	.effect{
+	   border-radius:40%;
+	   margin-left:9px;
+	}
+	
+	
+  </style>
+  
+  <script>
+      $(document).ready(function(){
+	     $(".img").hover(function(){
+		  $(this).toggleClass("image-name");
+		});
+		$(".about-img").hover(function(){
+		   $(".img-details").show();
+		})
+		 
+		//form validation  
+	   $("#username").hide();
+	   $("#pass").hide();
+	   
+	   let user_err = true;
+	   let password_err = true;
+	   
+	   $("#uName").keyup(function(){
+	       username_check();
+	   });
+	      function username_check(){
+		    let name=$("#uName").val();
+			 if(name==""){
+			    $("#username").show().html("**Please fill the username").css("color","red").focus();
+				user_err = false;
+				return false;
+			 }
+			 else{
+			    $("#username").hide();
+			 }
+		  
+		  if((name.length<=3) || (name.length>=25)){
+		     $("#username").show().html("**username length must be between 3 and 25").css("color","red").focus();
+			 user_err = false;
+			 return false;			 
+		  }
+		  else{
+		    $("#username").hide();
+		  }
+		}
+		
+		$("#password").keyup(function(){
+		    password_check();
+		});
+		  function password_check(){
+		     let password=$("#password").val();
+			 if(password==""){
+			   $("#pass").show().html("**Please fill the password").css('color','red').focus();
+			    password_err = false;
+				return false;
+			 }
+			 else{$("#pass").hide();
+			 }			 
+			 if(password.length!=8){
+			  $("#pass").show().html("**Password must be atleast 8 characters one special character and one upper case");
+			   $("#pass").css('color','red').focus();
+			    password_err = false;
+				return false;
+			 }
+			 else{
+			   $("#pass").hide();
+			 }
+			 
+			 let passcheck=0;
+			 for(let a1=0;a1<=password.length;a1++){
+			   if(password.charCodeAt(a1)>=65 && password.charCodeAt(a1)<=90){
+			      passcheck=1;
+			   }
+			 }
+			 if(passcheck==0){
+			    $("#pass").show().html("**You must contain atleast one Upper character in password").css('color','red').focus();
+			    password_err = false;
+				return false;
+			 }
+			 else{
+			   $("#pass").hide();
+			 }
+			 
+			 let pass_check=0;
+			 for(let a1=0;a1<=password.length;a1++){
+			   if(password.charCodeAt(a1)>=33 && password.charCodeAt(a1)<=42 || password.charCodeAt(a1)==64){
+			      pass_check=1;
+			   }
+			 }
+			 if(pass_check==0){
+			    $("#pass").show().html("**You must contain atleast one special character in password").css('color','red').focus();
+			    password_err = false;
+				return false;
+			 }
+			 else{
+			   $("#pass").hide();
+			 }
+		}
+		
+		$("#submit").click(function(){	
+            user_err = true;
+	        password_err = true;
+            		
+			username_check();
+			password_check();
+			
+			if((user_err==true) && (password_err==true)){
+			  return true;
+			}
+			else{
+			  return false;
+			}
+		});
+	  });
+	  
+	  //read more and less
+       $(".read").click(function(){
+	     $(this).prev().toggle();
+		 $(this).siblings('.dots').toggle();
+		 if($(this).text()=='Read More'){
+            $(this).text('Read Less');
+		 }
+		 else{
+		    $(this).text('Read More');
+		 }
+	   });
+
+   </script>
+   
+  <script>
+       function myFunction() {
+       let x = document.getElementById("password");
+           if (x.type === "password") {
+              x.type = "text";
+            } else {
+          x.type = "password";
+       }
+      }
+</script>
+     
+</head>
+<body style="background:url(Images/bckground.jpg)no-repeat;background-size:100% 100%;background-attachment:fixed;opacity:1;color:white;">
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top" >
+  <img class="rounded-circle" src="Images/logo.png" width="70" height="70" style="">
+  <a class="navbar-brand" style="margin-left:12px;" href="index.html"><span style="color:lightgrey;font-size:25px;"><b>RIYANSHI</b></span>
+     <small>PIE SHOP</small>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div id="nav" class="collapse navbar-collapse justify-content-center">
+    <ul class="navbar-nav">
+	   <li class="nav-item">
+	      <a class="nav-link active" href="index.html">HOME</a>
+	   </li>
+	   <li class="nav-item">
+		  <a class="nav-link" href="about.html">ABOUT US</a>
+	   </li>
+	   <li class="nav-item">
+		  <a class="nav-link" href="shop.html">SHOP</a>
+	   </li>
+	   <li class="nav-item dropdown">
+		  <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">INFO</a>
+		  <div class="dropdown-menu">
+		      <a class="dropdown-item" href="Return-&-funds.html">Returns &amp; Refunds</a>
+			  <a class="dropdown-item" href="shop.html">Stock our pies</a>
+		  </div>
+	   </li>
+	   <li class="nav-item">
+	      <a class="nav-link" href="Contact-us.html">CONTACT US</a>
+	   </li>
+	</ul>
+  </div>
+  <form class="form-ele justify-content-end" action="">
+    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+    <button class="btn btn-danger" type="submit">Search</button>
+  </form>
+
+<button style="margin-left:8%;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+  Login
+</button>
+</nav>
+
+
+<div class="modal fade" id="myModal" style="color:black;">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header" style="background:black;color:white;">
+        <h3 class="modal-title">Signin Or Register</h3>
+        <button type="button" class="close" data-dismiss="modal" style="color:white;">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+		  <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+		    <form onsubmit="return form()" method="post" action="index.html" autocomplete="off">
+			   <div class="form-group">
+			     <label for="uname">Username</label>
+				 <input type="text" class="form-control" id="uName" >
+				 <span id="username"></span>
+			   </div>
+			   <div class="form-group">
+			     <label for="password">Password</label>
+				 <input type="password" class="form-control" id="password">
+				 <span id="pass"></span><br>
+				 <input type="checkbox" onclick="myFunction()">&nbsp;&nbsp;Show Password
+			   </div>			   
+			   <p>Forget your password</p>
+			   <input type="submit" id="submit" class="btn btn-secondary" value="LOGIN">
+			</form>
+		  </div>
+		  
+		  
+		  <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+		     <h3>NEW HERE?</h3>
+             <p>Registration is free and easy!</p>
+             <ul>
+                 <li>Faster checkout</li>
+                 <li>Save multiple shipping addresses</li>
+                 <li>View and track orders and more</li>
+             </ul>
+			 <a href="Registration-form.html" class="btn btn-secondary">CREATE AN ACCOUNT</a>
+		  </div>
+		</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="carousel slide" id="demo" data-ride="carousel">
+   <ul class="carousel-indicators">
+     <li data-target="#demo" data-slide-to="0" class=""></li>
+	 <li data-target="#demo" data-slide-to="1" class="active"></li>
+	 <li data-target="#demo" data-slide-to="2" class=""></li>
+   </ul>
+   
+   <div class="carousel-inner">
+      <div class="carousel-item">
+	     <img src="Images/shop-image1.jpeg" style="background-attachment:fixed;" width="100%" height="500">
+		 <div class="carousel-caption">
+		     <h1 id="display" class="display-1">Our Pie Shop Open</h1>
+			 <p id="display" style="font-size:30px;">Mon-Fri 9am-10pm</p>
+			 <h1 style="font-family:myfont3;">Riyanshi pie shop always here for you</h1>
+		 </div>
+	  </div>
+	  <div class="carousel-item active">
+	     <img src="Images/shop-image2.jpeg" width="100%" height="500">
+		 <div class="carousel-caption">
+			 <h1 class="display-4" style="font-family:myfont3;width:55%;margin-bottom:40px;">We are what we pretend to be, so we must be careful about what we pretend to be.</h1>
+		 </div>
+	  </div>
+	  <div class="carousel-item">
+	     <img src="Images/shop-image3.jpeg" width="100%" height="500">
+		 <div class="carousel-caption">
+			 <h1 class="display-4" style="font-family:myfont3;">“Believe in yourself. You are braver than you think, more talented than you know, and capable of more than you imagine.”</h1>
+		 </div>
+	  </div>
+   </div>
+   <a class="carousel-control-prev" href="#demo" data-slide="prev">
+     <span class="carousel-control-prev-icon"></span>
+   </a>
+   <a class="carousel-control-next" href="#demo" data-slide="next">
+     <span class="carousel-control-next-icon"></span>
+   </a>
+</div>
+
+<div style="height:4px;background:green;">
+</div>
+
+<div class="container" height="100px">
+   <h1 style="text-align:center;font-size:35px;margin-top:20px;text-shadow:6px 6px 7px white;; color:#dc143c;"><b>A pies for Every Occasion</b></h1>
+   <p style="font-size:15px;margin-top:10px;">At the Real Pie Company we are passionate about pies. All of our delicious pies, pasties and rolls are freshly baked in our own kitchen and are Crammed to the Crust.</p>
+</div>
+
+<div class="container-fluid">
+<div class="row" style="Z-index:1;margin-left:28px;">
+   <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4" style="position:relative;">
+     <div class="ani1" style="width:90%;background:linear-gradient(lightgrey,black);border-radius:10%;text-align:center;">
+      <img class="rounded-circle img1" src="Images/pies-1.jpg" style="width:50%;height:50%;text-align:center;transition:all 2s;" title="pies" alt="This is pies">
+      <h2 style="color:#dc143c;">Pies</h2>
+	  <p style="padding:30px;box-sizing:border-box;color:white;">Made from our farm-fresh dairy products, this pie was a sensational creamy treat any time Mom served it. Her recipe is a real treasure, and I've never found one 
+	  <span id="dots">...</span>
+	  <span id="demo" style="display:none;">that tastes better</span> 
+	  <a class="btn btn-dark read effect">Read More</a></p>
+	 </div>
+   </div>
+   
+   <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 ani2" style="position:relative;">
+     <div style="width:90%;background:linear-gradient(lightgrey,black);border-radius:10%;text-align:center;">
+      <img class="rounded-circle img1" src="Images/pasties-1.jpg" style="width:50%;height:50%;text-align:center;transition:all 2s;" title="pasties">
+      <h2 style="color:#dc143c;">Pasties</h2>
+	  <p style="padding:30px;box-sizing:border-box;color:white;">A Cornish pasty is a turnover-shaped baked shortcrust pastry filled with beef and vegetables. The edges are sealed by crimping them in characteristic Cornish fashion.
+       <span id="dots">...</span>
+	  <span id="demo" style="display:none;">They can only contain beef, potato, Swede (rutabaga), onion, salt and pepper. No other meat, no other vegetables, no other seasonings allowed.</span>
+      <a class="btn btn-dark read effect">Read More</a></p>	 
+	  </div> 
+   </div>
+   
+   <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 ani3" style="position:relative;">
+     <div style="width:90%;background:linear-gradient(lightgrey,black);border-radius:10%;text-align:center;">
+	  <img class="rounded-circle img1" src="Images/sweet-bakes.jpg" style="width:50%;height:50%;text-align:center;transition:all 2s;" title="sweet bakes">
+      <h2 style="color:#dc143c;">Sweet bakes</h2>
+	  <p style="padding:30px;box-sizing:border-box;color:white;">For a double dose of chocolate, reach for this chocolate pecan pie recipe that starts with a chocolate crust that is topped with a chocolate filling and pecan halves. 
+	 <span id="dots">...</span>
+	  <span id="demo" style="display:none;">If you really want to gild the lily, serve each piece with a scoop of chocolate ice cream.</span>
+	   <a class="btn btn-dark read effect">Read More</a></p>
+	 </div>
+   </div>
+</div>
+</div>
+
+<div class="" style="background:#dcdcdc">
+   <div class="container"> 
+   <div><h1 id="head" class="text-center" style="color:white;font-family:myfont;color:black;text-decoration:underline;padding-top:2%;">Product Categories</h1></div>
+   <div class="row" style="margin-top:5%;margin-left:15px;">
+      <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 img">
+	      <div style="text-align:center;" >
+		   <div class="images1" style="position:relative;">
+		     <div  style="overflow:hidden;position:relative;width:80%;margin-left:10%" class="imag-box">
+	          <a href="#"><img class="img2" src="Images/pie1.jpeg" style="transition:transform 2s" width="100%" height="100%"></a>
+			 </div>
+			 <div class="img-details" style="width:80%;height:90%;position:absolute;left:10%;top:4%;right:17%;padding:20px;font-size:20px;background:black;color:white;opacity:0.6;transform:scaleX(0);transition:transform 2s">
+               <p class="details" style="position:absolute;">"Our strawberry pie is very delicious , you'll love it”</p>
+			 </div>
+		   </div>
+			  <h1 class="name" style="color:black;font-family:font;">Pies</h1>
+	      </div>
+	  </div>
+	  <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 img">
+	      <div style="text-align:center;">
+		   <div class="images1" style="position:relative;">
+		     <div  style="overflow:hidden;position:relative;width:80%;margin-left:10%" class="imag-box">
+	          <a href="#"><img class=" img2" src="Images/cold-drink.jpg" style="transition:transform 2s" width="100%" height="100%"></a>
+			 </div>
+			 <div class="img-details" style="width:80%;height:90%;position:absolute;left:10%;top:4%;right:17%;padding:20px;font-size:20px;background:black;color:white;opacity:0.6;transform:scaleX(0);transition:transform 2s">
+               <p class="details" style="position:absolute;">"A refreshing cold drink to keep you satisfied for the rest of the day.”</p>
+			 </div>
+		   </div>
+			  <h1 class="name" style="color:black;font-family:font;">Cold drink</h1>
+	      </div>
+	  </div>
+	  <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 img">
+	      <div style="text-align:center;">
+		   <div class="images1" style="position:relative;">
+		     <div  style="overflow:hidden;position:relative;width:80%;margin-left:10%" class="imag-box">
+	          <a href="#"><img class="img2" src="Images/pastries.jpg" style="transition:transform 2s" width="100%" height="100%"></a>
+			 </div>
+			 <div class="img-details" style="width:80%;height:90%;position:absolute;left:10%;top:4%;right:17%;padding:20px;font-size:20px;background:black;color:white;opacity:0.6;transform:scaleX(0);transition:transform 2s">
+               <p class="details" style="position:absolute;">"So Sweet. SO Good. Sure to bring smiles.”</p>
+			 </div>
+		   </div>
+			  <h1 style="color:black;font-family:font;">Pastries</h1>
+	      </div>
+	  </div>
+	  <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 img">
+	      <div style="text-align:center;">
+		   <div class="images1" style="position:relative;">
+		     <div  style="overflow:hidden;position:relative;width:80%;margin-left:10%" class="imag-box">
+	          <a href="#"><img class="img2" src="Images/pasties-2.jpg" style="transition:transform 2s"  width="100%" height="100%"></a>
+			 </div>
+			 <div class="img-details" style="width:80%;height:90%;position:absolute;left:10%;top:4%;right:17%;padding:20px;font-size:20px;background:black;color:white;opacity:0.6;transform:scaleX(0);transition:transform 2s">
+               <p class="details" style="position:absolute;">"Come and look our buns.”</p>
+			 </div>
+		   </div>
+			  <h1 style="color:black;font-family:font;">Pasties</h1>
+	      </div>
+	  </div>
+   </div>
+   
+   <div class="row" style="margin-top:5%;margin-left:15px;">
+      <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 img">
+	      <div style="text-align:center;">
+		   <div class="images1" style="position:relative;">
+		     <div  style="overflow:hidden;position:relative;width:80%;margin-left:10%" class="imag-box">
+	          <a href="#"><img  class="img2" src="Images/sausage-roll.jpg" style="transition:transform 2s" width="100%" height="100%"></a>
+			 </div>
+			 <div class="img-details" style="width:80%;height:90%;position:absolute;left:10%;top:4%;right:17%;padding:20px;font-size:20px;background:black;color:white;opacity:0.6;transform:scaleX(0);transition:transform 2s">
+               <p class="details" style="position:absolute;">"Sausage rolls are a stable of both British and Irish food.”</p>
+			 </div>
+		   </div>
+			  <h1 style="color:black;font-family:font;">sausage roll</h1>
+	      </div>
+	  </div>
+	  <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 img">
+	      <div style="text-align:center;">
+		   <div class="images1" style="position:relative;">
+		     <div  style="overflow:hidden;width:80%;position:relative;margin-left:10%" class="imag-box">
+	          <a href="#"><img class="img2" src="Images/pizza-pie.jpg" style="transition:transform 2s" width="100%" height="100%"></a>
+			 </div>
+			 <div class="img-details" style="width:80%;height:90%;position:absolute;left:10%;top:4%;right:17%;padding:20px;font-size:20px;background:black;color:white;opacity:0.6;transform:scaleX(0);transition:transform 2s">
+               <p class="details" style="position:absolute;">"Nothing is more important than pizza-pie”</p>
+			 </div>
+		   </div>
+			  <h1 style="color:black;font-family:font;">pizza pie</h1>
+			  
+	      </div>
+	  </div>
+	  <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 img">
+	      <div style="text-align:center;">
+		   <div class="images1" style="position:relative">
+		     <div  style="overflow:hidden;position:relative;width:80%;margin-left:10%" class="imag-box">
+	          <a href="#"><img class="img2" src="Images/Pie-packs.jpg" style="transition:transform 2s" width="100%" height="100%"></a>
+			 </div>
+			 <div class="img-details" style="width:80%;height:90%;position:absolute;left:10%;top:4%;right:17%;padding:20px;font-size:20px;background:black;color:white;opacity:0.6;transform:scaleX(0);transition:transform 2s">
+               <p class="details" style="position:absolute;">"Kids most love it”</p>
+			 </div>
+		   </div>
+			  <h1 style="color:black;font-family:font;">Pie packs</h1>
+	      </div>
+	  </div>
+	  <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 img">
+	      <div style="text-align:center;">
+		   <div class="images1" style="position:relative">
+		     <div  style="overflow:hidden;position:relative;width:80%;margin-left:10%" class="imag-box">
+	          <a href="#"><img class="img2" src="Images/special-offer.webp" style="transition:transform 2s" width="65%" height="60%"></a>
+			 </div>
+			 <div class="img-details" style="width:60%;height:90%;position:absolute;left:20%;top:4%;right:17%;padding:20px;font-size:14px;background:black;color:white;opacity:0.6;transform:scaleX(0);transition:transform 2s">
+               <p class="details" style="position:absolute;">"Special offer is for you. Buy one sausage roll and get one energy drink”</p>
+			 </div>
+		   </div>
+			  <h1 style="color:black;font-family:font;">special offer</h1>
+	      </div>
+	  </div>
+   </div>
+   </div>
+</div>
+
+<div>
+  <marquee width="100%" height="50%" direction="right" style="padding:5px" scrollamount="10">Award winning handmade pies with nationwide delivery</marquee>
+</div>
+
+<div style="background:black;opacity:0.6;">
+  <div class="container-fluid nav-tab" style="text-align:center;">
+	 <img src="Images/award1.png" alt="award winning in 2017">
+	 <img src="Images/award2.png" alt="award winning in 2017">
+	 <img src="Images/award3.png" alt="award winning in 2017">
+  </div>
+  <hr style="color:white;">
+  
+  <div class="container">
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <p style="margin-left:10%;"><b>Contact Us</b></p>
+        <ul>
+         <li class="list">Toll free-0234794612</li>
+         <li class="list">Mobile-6743245985</li>
+         <li class="list">Email-<a href="mailto:drf@gmail.com" style="color:white;">drf@gmail.com</a></li>
+	    
+		 <p style="margin-top:8%;font-family:font;font-size:20px;"><b>Mon-Fri 9am-10pm</b></p>
+	</ul></div>
+	<div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+	    <nav class="navbar navbar-expand-sm navbar-dark">
+	    <ul class="navbar-nav flex-column" style="color:white;">
+	      <li class="nav-item">
+		     <a class="nav-link" href="#">FAQ's</a>
+		  </li>
+		  <li class="nav-item"><a class="nav-link" href="#">My Account</a></li>
+		  <li class=" nav-item"><a class="nav-link" href="#">Returns and Refunds</a></li>
+		  <li class="nav-item"><a class="nav-link" href="#">Stock our Pie</a></li>
+		  <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+		  <li class="nav-item"><a class="nav-link" href="#">Privacy Policy</a></li>
+		  <li class="nav-item"><a class="nav-link" href="#">Terms &amp; Condition</a></li>
+	   </ul>
+	   </nav>
+	</div>
+	<div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+	    <p>Sign up to our newsletter for news, offers and exclusive perks</p>
+		<input type="email" placeholder="enter your email"><input style="background:red;color:white;" type="submit" value="Send">
+		<address style="margin-top:10%;">
+		  <strong>Riyanshi Pie Shop</strong><br>
+		  <small><i>Dankeenganj, Mirzapur<br>
+		  Uttar Pradesh<br>
+		  231001</i></small>
+		</address>
+	</div>
+  </div>
+  </div>
+</div>
+
+ 
+ <div style="background:green;font-size:15px;padding:10px 20px;" class="clearfix">
+  <div style="margin-left:90px;margin-right:90px;">
+    <span class="float:left"><span style="margin-right:10px;">&copy;</span> Copyright 2021 Riyanshi Pie Shop All Rights Reserved</span>
+	<span class="float-right" ><a href="#"><i class="fa fa-facebook-square" style="font-size:24px;color:white;"></i></a>
+	<a href="#"><i class="fa fa-google-plus-square" style="font-size:24px;color:white;"></i></a>
+	<a href="#"><i class="fa fa-twitter-square" style="font-size:24px;color:white;"></i></a>
+    </span>
+ </div>
+ </div>
+
+
+</body></html>

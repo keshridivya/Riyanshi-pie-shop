@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="shortcut icon" href="Images/logo.png" type="image/png">
+  
+  <style>
+    @font-face{
+	  font-family:font;
+	  src:url(fonts/BRUSHSCI.TTF);
+	}
+    #display{
+	  font-family:font;
+	  color:;
+	}
+	@font-face{
+	  font-family:myfont3;
+	  src:url(fonts/ITCEDSCR.TTF);
+	}
+	@font-face{
+	  font-family:myfont4;
+	  src:url(fonts/COOPBL.TTF);
+	}
+	.link1{
+	  color:#808080;
+	}
+	.list {
+	  list-style:none;
+	}
+	
+	.fa-heart-o, .fa-shopping-cart{
+	  cursor:pointer;
+	}
+	td{
+	  color:grey;
+	}
+	#caption{
+	caption-side:top;
+	font-family:myfont3;
+	font-size:35px;
+	color:black;
+	text-align:center;
+	animation:myani 10s infinite;
+	-webkit-animation:myani 10s infinite;
+	-moz-animation:myani 10s infinite;
+	-ms-animation:myani 10s infinite;
+	-o-animation:myani 10s infinite;
+	}
+	@keyframes myani{
+	 0% {opacity: 1;}
+     50% {opacity: 0;transform: scale(2);}
+     51% {opacity: 0;transform: scale(0);}
+    100% {transform: scale(1);opacity: 1;}
+	}
+	@-webkit-keyframes myani{
+	  0% {opacity: 1;}
+     50% {opacity: 0;transform: scale(2);}
+     51% {opacity: 0;transform: scale(0);}
+    100% {transform: scale(1);opacity: 1;}
+	}
+	@-moz-keyframes myani{
+	  0% {opacity: 1;}
+     50% {opacity: 0;transform: scale(2);}
+     51% {opacity: 0;transform: scale(0);}
+    100% {transform: scale(1);opacity: 1;}
+	}
+	@-ms-keyframes myani{
+	  0% {opacity: 1;}
+     50% {opacity: 0;transform: scale(2);}
+     51% {opacity: 0;transform: scale(0);}
+    100% {transform: scale(1);opacity: 1;}
+	}@-o-keyframes myani{
+	  0% {opacity: 1;}
+     50% {opacity: 0;transform: scale(2);}
+     51% {opacity: 0;transform: scale(0);}
+    100% {transform: scale(1);opacity: 1;}
+	}
+	.form-ele{
+	  display:flex;
+	  text-align:center;
+	}
+    .nav-item > #nav-link:hover, #nav-link:active{
+	  color:white !important;
+	}
+    .link1:hover, .active{
+	  color:black;
+	}
+	.heart{
+	  color:red;
+	}
+  </style>
+  
+  <script>
+  $(document).ready(function(){
+     $("[data-toggle=tooltip]").tooltip();
+	 
+	 $('.nav .nav-item a').click(function(){
+	    $('.nav-item .link1').removeClass('active');
+		$(this).addClass('active');
+	  });
+	  
+	  $(".fa-heart-o").click(function(){
+	  $(this).toggleClass("heart");
+	});
+  });
+</script>
+
+</head>
+<body style="background:url(Images/bckground.jpg)no-repeat;background-size:100% 100%;background-attachment:fixed;opacity:1;color:white;">
+<nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top" >
+  <img class="rounded-circle" src="Images/logo.png" width="70" height="70" >
+  <a class="navbar-brand" href="index.html" style="margin-left:12px;"><span style="color:lightgrey;font-size:25px;"><b>RIYANSHI</b></span>
+     <small>PIE SHOP</small>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div id="nav" class="collapse navbar-collapse justify-content-center">
+    <ul class="navbar-nav">
+	   <li class="nav-item">
+	      <a class="nav-link" id="nav-link" href="index.html">HOME</a>
+	   </li>
+	   <li class="nav-item">
+		  <a class="nav-link" id="nav-link" href="about.html">ABOUT US</a>
+	   </li>
+	   <li class="nav-item">
+		  <a class="nav-link  active" id="nav-link" href="shop.html">SHOP</a>
+	   </li>
+	   <li class="nav-item dropdown">
+		  <a class="nav-link dropdown-toggle" id="nav-link" href="#" data-toggle="dropdown">INFO</a>
+		  <div class="dropdown-menu">
+		      <a class="dropdown-item" href="Return-&-refunds.html">Returns & Refunds</a>
+			  <a class="dropdown-item" href="shop.html">Stock our pies</a>
+		  </div>
+	   </li>
+	   <li class="nav-item">
+	      <a class="nav-link" id="nav-link" href="Contact-us.html">CONTACT US</a>
+	   </li>
+	</ul>
+  </div>
+  <form class="form-ele justify-content-end" action="/action_page.php" >
+    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+    <button class="btn btn-danger" type="submit">Search</button>
+  </form>
+</nav>
+
+<div style="background:#F4F6F7;width:100%;height:80px;line-height:80px;color:#566573" class="clearfix link">
+  <div class="container-fluid">
+     <span class="float-left" style="font-size:35px;font-family:myfont4;color:linear-gradient(lightgrey,black);margin-left:25px;"><b>Shop</b></span>
+	 <div style="margin-right:25px;">
+     <span class="float-right"><i class="fa fa-home link"></i>
+     <a href="index.html.html" style="text-decoration:none;color:#566573;">Home</a>/product</span>
+	 </div>
+  </div>
+</div>
+
+<div class="container-fluid card" style="background:white;" id="accordionExample">
+  <div class="row">
+     <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4" >
+	     <h1 style="color:#DC7633;text-align:center;">Product Categories</h1>
+	     <ul class="nav flex-column" style="color:#808080;margin-left:10px;" >
+		   <li class="nav-item" data-toggle="collapse" data-target="#table1" ><a class="nav-link link1" href="#" >Pies</a></li>
+		   <li class="nav-item" data-toggle="collapse" data-target="#table2"><a class="nav-link link1 active" href="#">Pastries</a></li>
+		   <li class="nav-item" data-toggle="collapse" data-target="#table3"><a class="nav-link link1" href="#">Pasties</a></li>
+		   <li class="nav-item" data-toggle="collapse" data-target="#table4"><a class="nav-link link1" href="#">Soft drink</a></li>
+		   <li class="nav-item" data-toggle="collapse" data-target="#table5"><a class="nav-link link1" href="#">Sausage roll</a></li>
+		   <li class="nav-item" data-toggle="collapse" data-target="#table6"><a class="nav-link link1" href="#">Pizza pie</a></li>
+		   <li class="nav-item" data-toggle="collapse" data-target="#table7"><a class="nav-link link1" href="#">Pie pack</a></li>
+		   <li class="nav-item" data-toggle="collapse" data-target="#table8"><a class="nav-link link1" href="#">Gifts</a></li>
+		 </ul>
+	 </div>
+	 <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 card">
+	   <div class="container">
+	      <div class="table-responsive">
+	         <div class="collapse" id="table1" data-parent="#accordionExample">
+			 <table class="table table-bordered table-hover" style="text-align:center;">
+			    <caption id="caption">Our delicious selection of pies for you to enjoy!</caption>
+				<tr>
+				   <th>Image</th>
+				   <th>Pie name</th>
+				   <th>Price</th>
+				   <th>Details</th>
+				   <th>Add to cart</th>
+				   <th>Wishlist</th>
+				</tr>
+				<tr>
+				   <td><a href="Images/applepie.jpg" target="_blank"><img src="Images/applepie.jpg" data-toggle="tooltip" title="Our famous apple pie" width="100px" height="50px"></a>
+				   <td>Apple Pie</td>
+				   <td><i class="fa fa-rupee"></i> 350</td>
+				   <td><a href="#">View detail</a></td>
+				   <td><i class="fa fa-shopping-cart" style="font-size:30px"></i></td>
+				   <td><i class="fa fa-heart-o" style="font-size:30px"></i></td>
+				</tr>
+				<tr>
+				   <td><a href="Images/cherrypie.jpg" target="_blank"><img src="Images/cherrypie.jpg" data-toggle="tooltip" title="A summer classic!" width="100px" height="50px"></a>
+				   <td>Cherry pie</td>
+				   <td><i class="fa fa-rupee"></i>400</td>
+				   <td><a href="#">View detail</a></td>
+				   <td><i class="fa fa-shopping-cart" style="font-size:30px"></i></td>
+				   <td><i class="fa fa-heart-o" style="font-size:30px"></i></td>
+				</tr>
+				<tr>
+				   <td><a href="Images/christmasapplepie.jpg" target="_blank"><img src="Images/christmasapplepie.jpg" data-toggle="tooltip" title="A Christmas favorite" width="100px" height="50px"></a>
+				   <td>Christmas apple Pie</td>
+				   <td><i class="fa fa-rupee"></i> 700</td>
+				   <td><a href="#">View detail</a></td>
+				   <td><i class="fa fa-shopping-cart" style="font-size:30px"></i></td>
+				   <td><i class="fa fa-heart-o" style="font-size:30px"></i></td>
+				</tr>
+				<tr>
+				   <td><a href="Images/pumpkinpie.jpg" target="_blank"><img src="Images/pumpkinpie.jpg" data-toggle="tooltip" title="Our Halloween favorite" width="100px" height="50px"></a>
+				   <td>Pumpkin Pie</td>
+				   <td><i class="fa fa-rupee"></i>579</td>
+				   <td><a href="#">View detail</a></td>
+				   <td><i class="fa fa-shopping-cart" style="font-size:30px"></i></td>
+				   <td><i class="fa fa-heart-o" style="font-size:30px"></i></td>
+				</tr>
+				<tr>
+				   <td><a href="Images/pie1.jpeg" target="_blank"><img src="Images/pie1.jpeg" data-toggle="tooltip" title="	Our delicious strawberry pie" width="100px" height="50px"></a>
+				   <td>Strawberry Pie</td>
+				   <td><i class="fa fa-rupee"></i>579</td>
+				   <td><a href="#">View detail</a></td>
+				   <td><i class="fa fa-shopping-cart" style="font-size:30px"></i></td>
+				   <td><i id="wishlist" class="fa fa-heart-o" style="font-size:30px"></i></td>
+				</tr>
+		     </table>
+			 </div>
+
+			 <div class="collapse-show" id="table2" data-parent="#accordionExample">
+			 <table class="table table-bordered" style="text-align:center;">
+			    <caption id="caption">Our delicious selection of pastries for you to enjoy!</caption>
+				<tr>
+				   <th>Image</th>
+				   <th>Pastries name</th>
+				   <th>Price</th>
+				   <th>Details</th>
+				   <th>Add to cart</th>
+				   <th>Wishlist</th>
+				</tr>
+				<tr>
+				   <td><a href="Images/mini-berries-cream-pastry.jpg" target="_blank"><img src="Images/mini-berries-cream-pastry.jpg" data-toggle="tooltip" title="Creamy mini Berries" width="100px" height="50px"></a>
+				   <td>Mini Berries & Cream pastries</td>
+				   <td><i class="fa fa-rupee"></i> 930</td>
+				   <td><a href="#">View detail</a></td>
+				   <td><i class="fa fa-shopping-cart" style="font-size:30px"></i></td>
+				   <td><i class="fa fa-heart-o" style="font-size:30px"></i></td>
+				</tr>
+				<tr>
+				   <td><a href="Images/eggless-pastries.jpg" target="_blank"><img src="Images/eggless-pastries.jpg" data-toggle="tooltip" title="Eggless pastries" width="100px" height="50px"></a>
+				   <td>Eggless pastries</td>
+				   <td><i class="fa fa-rupee"></i>830</td>
+				   <td><a href="#">View detail</a></td>
+				   <td><i class="fa fa-shopping-cart" style="font-size:30px"></i></td>
+				   <td><i class="fa fa-heart-o" style="font-size:30px"></i></td>
+				</tr>
+				<tr>
+				   <td><a href="Images/blueberrycheesecake.jpg" target="_blank"><img src="Images/blueberrycheesecake.jpg" data-toggle="tooltip" title="You'll love it" width="100px" height="50px"></a>
+				   <td>Blueberry cheese</td>
+				   <td><i class="fa fa-rupee"></i> 1200</td>
+				   <td><a href="#">View detail</a></td>
+				   <td><i class="fa fa-shopping-cart" style="font-size:30px"></i></td>
+				   <td><i class="fa fa-heart-o" style="font-size:30px"></i></td>
+				</tr>
+				<tr>
+				   <td><a href="Images/strawberrycheesecake.jpg" target="_blank"><img src="Images/strawberrycheesecake.jpg" data-toggle="tooltip" title="One of the best cheese cakes you'll ever find!" width="100px" height="50px"></a>
+				   <td>Strawberry cheese</td>
+				   <td><i class="fa fa-rupee"></i>1275</td>
+				   <td><a href="#">View detail</a></td>
+				   <td><i class="fa fa-shopping-cart" style="font-size:30px"></i></td>
+				   <td><i class="fa fa-heart-o" style="font-size:30px"></i></td>
+				</tr>
+				<tr>
+				   <td><a href="Images/pastries.jpg" target="_blank"><img src="Images/pastries.jpg" data-toggle="tooltip" title="it's delicious" width="100px" height="50px"></a>
+				   <td>Pineapple pastries</td>
+				   <td><i class="fa fa-rupee"></i>579</td>
+				   <td><a href="#">View detail</a></td>
+				   <td><i class="fa fa-shopping-cart" style="font-size:30px"></i></td>
+				   <td><i class="fa fa-heart-o" style="font-size:30px"></i></td>
+				</tr>
+		     </table>
+			 </div>
+			 
+			 <div class="collapse" id="table3" data-parent="#accordionExample">
+			 <table class="table table-bordered" style="text-align:center;">
+			    <caption id="caption">Our delicious selection of pasties for you to enjoy!</caption>
+				<tr>
+				   <th>Image</th>
+				   <th>Pasties name</th>
+				   <th>Price</th>
+				   <th>Details</th>
+				   <th>Add to cart</th>
+				   <th>Wishlist</th>
+				</tr>
+				<tr>
+				   <td><a href="Images/cornishpasty.jpg" target="_blank"><img src="Images/cornishpasty.jpg" data-toggle="tooltip" title="cornish pasty" width="100px" height="50px"></a>
+				   <td>Cornish pasties</td>
+				   <td><i class="fa fa-rupee"></i> 270</td>
+				   <td><a href="#">View detail</a></td>
+				   <td><i class="fa fa-shopping-cart" style="font-size:30px"></i></td>
+				   <td><i class="fa fa-heart-o" style="font-size:30px"></i></td>
+				</tr>
+				<tr>
+				   <td><a href="Images/vegetablepasty.jpg" target="_blank"><img src="Images/vegetablepasty.jpg" data-toggle="tooltip" title="vegetable pasties make from fresh vegies" width="100px" height="50px"></a>
+				   <td>vegetable pasties</td>
+				   <td><i class="fa fa-rupee"></i>340</td>
+				   <td><a href="#">View detail</a></td>
+				   <td><i class="fa fa-shopping-cart" style="font-size:30px"></i></td>
+				   <td><i class="fa fa-heart-o" style="font-size:30px"></i></td>
+				</tr>
+				<tr>
+				   <td><a href="Images/cheese&onion.jpg" target="_blank"><img src="Images/cheese&onion.jpg" data-toggle="tooltip" title="it's very delicious" width="100px" height="50px"></a>
+				   <td>cheese & onion pasties</td>
+				   <td><i class="fa fa-rupee"></i> 300</td>
+				   <td><a href="#">View detail</a></td>
+				   <td><i class="fa fa-shopping-cart" style="font-size:30px"></i></td>
+				   <td><i class="fa fa-heart-o" style="font-size:30px"></i></td>
+				</tr>
+		     </table>
+			 </div>
+			 
+			 <div class="collapse" id="table4" data-parent="#accordionExample">
+			 <table class="table table-bordered" style="text-align:center;">
+			    <caption id="caption">Our Soft Drink selection for you to enjoy!</caption>
+				<tr>
+				   <th>Image</th>
+				   <th>Soft Drink</th>
+				   <th>Price</th>
+				   <th>Details</th>
+				   <th>Add to cart</th>
+				   <th>Wishlist</th>
+				</tr>
+				<tr>
+				   <td><a href="Images/canned.jpg" target="_blank"><img src="Images/canned.jpg" data-toggle="tooltip" title="Also available in caneed" width="100px" height="50px"></a>
+				   <td>canned</td>
+				   <td><i class="fa fa-rupee"></i>50</td>
+				   <td><a href="#">View detail</a></td>
+				   <td><i class="fa fa-shopping-cart" style="font-size:30px"></i></td>
+				   <td><i class="fa fa-heart-o" style="font-size:30px"></i></td>
+				</tr>
+				<tr>
+				   <td><a href="Images/coca.jpg" target="_blank"><img src="Images/coca.jpg" data-toggle="tooltip" title="Open happiness" width="100px" height="50px"></a>
+				   <td>Coca</td>
+				   <td><i class="fa fa-rupee"></i>120</td>
+				   <td><a href="#">View detail</a></td>
+				   <td><i class="fa fa-shopping-cart" style="font-size:30px"></i></td>
+				   <td><i class="fa fa-heart-o" style="font-size:30px"></i></td>
+				</tr>
+				<tr>
+				   <td><a href="Images/cold-drink.jpg" target="_blank"><img src="Images/cold-drink.jpg" data-toggle="tooltip" title="A cold drink is the answer to most problems" width="100px" height="50px"></a>
+				   <td>cold-drink</td>
+				   <td><i class="fa fa-rupee"></i> 150</td>
+				   <td><a href="#">View detail</a></td>
+				   <td><i class="fa fa-shopping-cart" style="font-size:30px"></i></td>
+				   <td><i class="fa fa-heart-o" style="font-size:30px"></i></td>
+				</tr>
+				<tr>
+				   <td><a href="Images/white.jpg" target="_blank"><img src="Images/white.jpg" data-toggle="tooltip" title="Chill drink " width="100px" height="50px"></a>
+				   <td>white</td>
+				   <td><i class="fa fa-rupee"></i>260</td>
+				   <td><a href="#">View detail</a></td>
+				   <td><i class="fa fa-shopping-cart" style="font-size:30px"></i></td>
+				   <td><i class="fa fa-heart-o" style="font-size:30px"></i></td>
+				</tr>
+				<tr>
+				   <td><a href="Images/energydrink.jpg" target="_blank"><img src="Images/energydrink.jpg" data-toggle="tooltip" title="Energy drink build energy" width="100px" height="50px"></a>
+				   <td>energy drink</td>
+				   <td><i class="fa fa-rupee"></i>375</td>
+				   <td><a href="#">View detail</a></td>
+				   <td><i class="fa fa-shopping-cart" style="font-size:30px"></i></td>
+				   <td><i class="fa fa-heart-o" style="font-size:30px"></i></td>
+				</tr>
+		     </table>
+			 </div>
+			 
+			 <div class="collapse" id="table5" data-parent="#accordionExample">
+			 <table class="table table-bordered" style="text-align:center;">
+			    <caption id="caption">Our delicious selection of Sausage roll for you to enjoy!</caption>
+				<tr>
+				   <th>Image</th>
+				   <th>Sausage roll name</th>
+				   <th>Price</th>
+				   <th>Details</th>
+				   <th>Add to cart</th>
+				   <th>Wishlist</th>
+				</tr>
+				<tr>
+				   <td><a href="Images/breadsausageroll.jpg" target="_blank"><img src="Images/breadsausageroll.jpg" data-toggle="tooltip" title="apple pie" width="100px" height="50px"></a>
+				   <td>bread sausage roll</td>
+				   <td><i class="fa fa-rupee"></i> 930</td>
+				   <td><a href="#">View detail</a></td>
+				   <td><i class="fa fa-shopping-cart" style="font-size:30px"></i></td>
+				   <td><i class="fa fa-heart-o" style="font-size:30px"></i></td>
+				</tr>
+				<tr>
+				   <td><a href="Images/chillilambminisausage.jpg" target="_blank"><img src="Images/chillilambminisausage.jpg" data-toggle="tooltip" title="apple pie" width="100px" height="50px"></a>
+				   <td>chilli lamb mini sausage</td>
+				   <td><i class="fa fa-rupee"></i>830</td>
+				   <td><a href="#">View detail</a></td>
+				   <td><i class="fa fa-shopping-cart" style="font-size:30px"></i></td>
+				   <td><i class="fa fa-heart-o" style="font-size:30px"></i></td>
+				</tr>
+				<tr>
+				   <td><a href="Images/sausage-roll.jpg" target="_blank"><img src="Images/sausage-roll.jpg" data-toggle="tooltip" title="apple pie" width="100px" height="50px"></a>
+				   <td>sausage roll</td>
+				   <td><i class="fa fa-rupee"></i> 1200</td>
+				   <td><a href="#">View detail</a></td>
+				   <td><i class="fa fa-shopping-cart" style="font-size:30px"></i></td>
+				   <td><i class="fa fa-heart-o" style="font-size:30px"></i></td>
+				</tr>
+		     </table>
+			 </div>
+	      </div>
+	   </div>
+	 </div>
+  </div>
+</div>
+
+
+<div>
+  <marquee width="100%" height="50%" direction="right" scrollamount="10" style="padding:5px">Award winning handmade pies with nationwide delivery</marquee>
+</div>
+
+<div style="background:black;opacity:0.6;">
+  <div class="container-fluid nav-tab" style="text-align:center;">
+	 <img src="Images/award1.png" alt="award winning in 2017">
+	 <img src="Images/award2.png" alt="award winning in 2017">
+	 <img src="Images/award3.png" alt="award winning in 2017">
+  </div>
+  <hr style="color:white;">
+  
+  <div class="container">
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <p style="margin-left:10%;"><b>Contact Us</b></p>
+        <ul >
+         <li class="list">Toll free-0234794612</li>
+         <li class="list">Mobile-6743245985</li>
+         <li class="list">Email-<a href="mailto:drf@gmail.com" style="color:white;">drf@gmail.com</a></li>
+	    </u>
+		 <p style="margin-top:8%;font-family:font;font-size:20px;"><b>Mon-Fri 9am-10pm</b></p>
+	</div>
+	<div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+	    <nav class="navbar navbar-expand-sm navbar-dark">
+	    <ul class="navbar-nav flex-column" style="color:white;">
+	      <li class="nav-item">
+		     <a class="nav-link" href="#">FAQ's</a>
+		  </li>
+		  <li class="nav-item"><a class="nav-link"  href="#">My Account</a></li>
+		  <li class=" nav-item"><a class="nav-link" href="#">Returns and Refunds</a></li>
+		  <li class="nav-item"><a class="nav-link" href="#">Stock our Pie</a></li>
+		  <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+		  <li class="nav-item"><a class="nav-link" href="#">Privacy Policy</a></li>
+		  <li class="nav-item"><a class="nav-link" href="#">Terms & Condition</a></li>
+	   </ul>
+	   </nav>
+	</div>
+	<div  class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+	    <p>Sign up to our newsletter for news, offers and exclusive perks</p>
+		<input type="email" placeholder="enter your email"><input style="background:red;color:white;" type="submit" value="Send">
+		<address  style="margin-top:10%;">
+		  <strong>Riyanshi Pie Shop</strong><br>
+		  <small><i>Dankeenganj, Mirzapur<br>
+		  Uttar Pradesh<br>
+		  231001</i></small>
+		</address>
+	</div>
+  </div>
+  </div>
+</div>
+
+ <div style="background:green;font-size:15px;padding:10px 20px;" class="clearfix">
+ <div style="margin-left:90px;margin-right:90px;">
+    <span class="float:left" style=""><span style="margin-right:10px;">&copy;</span> Copyright 2021 Riyanshi Pie Shop All Rights Reserved</span>
+	<span class="float-right" ><a href="#"><i class="fa fa-facebook-square" style="font-size:24px;color:white;"></i></a>
+	<a href="#"><i class="fa fa-google-plus-square" style="font-size:24px;color:white;"></i></a>
+	<a href="#"><i class="fa fa-twitter-square" style="font-size:24px;color:white;"></i></a>
+    </span>
+ </div>
+ </div>
+</body>
+</html>

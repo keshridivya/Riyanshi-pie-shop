@@ -185,20 +185,18 @@
 			  return false;
 			}
 		});
+		$('.read').click(function(){
+		  $(this).prev().toggle();
+		  $(this).siblings('.dots').toggle();
+		  if($(this).text()=='Read More'){
+		     $(this).text('Read Less');
+		  }
+		  else{
+		     $(this).text('Read More');
+		  }
+		});
 	  });
-	  
-	  //read more and less
-       $(".read").click(function(){
-	     $(this).prev().toggle();
-		 $(this).siblings('.dots').toggle();
-		 if($(this).text()=='Read More'){
-            $(this).text('Read Less');
-		 }
-		 else{
-		    $(this).text('Read More');
-		 }
-	   });
-
+	 
    </script>
    
   <script>
@@ -351,10 +349,10 @@
 <div class="row" style="Z-index:1;margin-left:28px;">
    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4" style="position:relative;">
      <div class="ani1" style="width:90%;background:linear-gradient(lightgrey,black);border-radius:10%;text-align:center;">
-      <img class="rounded-circle img1" src="Images/pies-1.jpg" style="width:50%;height:50%;text-align:center;transition:all 2s;" title="pies" alt="This is pies">
+      <img class="rounded-circle img1" src="Images/Pies-1.jpg" style="width:50%;height:50%;text-align:center;transition:all 2s;" title="pies" alt="This is pies">
       <h2 style="color:#dc143c;">Pies</h2>
 	  <p style="padding:30px;box-sizing:border-box;color:white;">Made from our farm-fresh dairy products, this pie was a sensational creamy treat any time Mom served it. Her recipe is a real treasure, and I've never found one 
-	  <span id="dots">...</span>
+	  <span class="dots">...</span>
 	  <span id="demo" style="display:none;">that tastes better</span> 
 	  <a class="btn btn-dark read effect">Read More</a></p>
 	 </div>
@@ -362,10 +360,10 @@
    
    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 ani2" style="position:relative;">
      <div style="width:90%;background:linear-gradient(lightgrey,black);border-radius:10%;text-align:center;">
-      <img class="rounded-circle img1" src="Images/pasties-1.jpg" style="width:50%;height:50%;text-align:center;transition:all 2s;" title="pasties">
+      <img class="rounded-circle img1" src="Images/Pasties-1.jpg" style="width:50%;height:50%;text-align:center;transition:all 2s;" title="pasties">
       <h2 style="color:#dc143c;">Pasties</h2>
 	  <p style="padding:30px;box-sizing:border-box;color:white;">A Cornish pasty is a turnover-shaped baked shortcrust pastry filled with beef and vegetables. The edges are sealed by crimping them in characteristic Cornish fashion.
-       <span id="dots">...</span>
+       <span class="dots">...</span>
 	  <span id="demo" style="display:none;">They can only contain beef, potato, Swede (rutabaga), onion, salt and pepper. No other meat, no other vegetables, no other seasonings allowed.</span>
       <a class="btn btn-dark read effect">Read More</a></p>	 
 	  </div> 
@@ -376,13 +374,14 @@
 	  <img class="rounded-circle img1" src="Images/sweet-bakes.jpg" style="width:50%;height:50%;text-align:center;transition:all 2s;" title="sweet bakes">
       <h2 style="color:#dc143c;">Sweet bakes</h2>
 	  <p style="padding:30px;box-sizing:border-box;color:white;">For a double dose of chocolate, reach for this chocolate pecan pie recipe that starts with a chocolate crust that is topped with a chocolate filling and pecan halves. 
-	 <span id="dots">...</span>
+	 <span class="dots">...</span>
 	  <span id="demo" style="display:none;">If you really want to gild the lily, serve each piece with a scoop of chocolate ice cream.</span>
 	   <a class="btn btn-dark read effect">Read More</a></p>
 	 </div>
    </div>
 </div>
 </div>
+
 
 <div class="" style="background:#dcdcdc">
    <div class="container"> 
